@@ -2,8 +2,8 @@
 #include<iostream>
 #include<cassert>
 class String{
-    char * value; //value don't include last zero
-    int len; //length
+    char * value;
+    int len;
 public:    
     String(){
         value = nullptr;
@@ -11,17 +11,19 @@ public:
     }
     String(const char * s){
         if ((s == nullptr) || (s[0] == 0)){
-            value = nullptr;
+            value = new char[1];
+	    value[0] = 0;
             len = 0;
             return;
         }
         int k = 0;
         for (; s[k] != 0; ++k){}
         len = k;
-        value = new char[len];
+        value = new char[len + 1];
         for (int i = 0; s[i] != 0; ++i){
             value[i] = s[i];
         }
+	value[len] = 0;
     }
     std::size_t length() const{
         return len;
@@ -35,11 +37,12 @@ public:
         }
         int size_s = 0;
         for (;s[size_s] != 0; ++size_s){}
-        char * new_value = new char[len + size_s];
+        char * new_value = new char[len + size_s + 1];
         for (int i = 0; i < len; ++i)
             new_value[i] = value[i];
         for (int i = len; i < len + size_s; ++i)
             new_value[i] = s[i - len];
+	new_value[len + size_s] = 0;
         delete[] value;
         value = new_value;
         len += size_s;
@@ -48,15 +51,14 @@ public:
         return value;
     }
     void out(){
-        char * temp = new char[len + 1];
-        for (int i = 0; i < len; ++i)
-            temp[i] = value[i];
-        temp[len] = 0;
-        std::cout<<temp;
-        delete[] temp;
+        std::cout<<value;
     }
     ~String(){
         delete[] value;
+    }
+    //OP-030-STRING
+    String operator+(const String& arg){
+    	return {};	
     }
 };
 int main(){
