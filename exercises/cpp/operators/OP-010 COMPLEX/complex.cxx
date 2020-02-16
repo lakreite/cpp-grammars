@@ -157,4 +157,5 @@ int main(){
     (a++ + --b).outln();
     c = {2,-2};
     std::cout<< "a == " << a << "; b == " << b << "; c == " << c << std::endl;
+    std::cout<<"8+0i == " << Complex(8,0)<< std::endl;
 }
