@@ -24,11 +24,11 @@ public:
         Complex t(this->re() + arg2.re(), this->im() + arg2.im());
         return t;
     }
-    Complex operator+(){//const Complex& arg){
+    Complex operator+(){
         return *this;
     }
-    Complex operator-(){//const Complex& arg){
-        return {-this->re(),-this->im()};//Complex(-arg.re(), -arg.im());
+    Complex operator-(){
+        return {-this->re(),-this->im()};
     }
     Complex operator-(const Complex &arg2){
         return Complex(this->re() - arg2.re(), this->im() - arg2.im());
@@ -77,6 +77,15 @@ public:
         this->r = arg.re();
         this->i = arg.im();
         return *this;
+    }
+    friend std::ostream& operator<<(std::ostream &out, const Complex &arg){
+        if (arg.im() > 0)
+            out << arg.re() << '+' << arg.im() << 'i';
+        else if (arg.im() < 0)
+            out << arg.re() << arg.im() << 'i';
+        else
+            out << arg.re();
+        return out;
     }
 };
 int main(){
@@ -146,4 +155,6 @@ int main(){
     (a-b).outln();
     std::cout<<"a++ + --b == ";
     (a++ + --b).outln();
+    c = {2,-2};
+    std::cout<< "a == " << a << "; b == " << b << "; c == " << c << std::endl;
 }
