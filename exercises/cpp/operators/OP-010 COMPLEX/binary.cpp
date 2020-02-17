@@ -22,11 +22,17 @@ int main(){
     cout<<"a: "<<a<<" b: "<<b<<endl;
     cout<<"a==b: "<<(a==b)<<endl;
     cout<<"a!=b: "<<(a!=b)<<endl;
+    b = {0, 1};
+    cout<<"b: "<<b<<endl;
+    cout<<"a==b: "<<(a==b)<<endl;
+    cout<<"a!=b: "<<(a!=b)<<endl;
     cout<<"2 * a: "<<(2 * a)<<endl;
     cout<<"a * 2: "<<(a * 2)<<endl;
     cout<<"a + 8: "<<(a + 8)<<endl;
     cout<<"8 + a: "<<(8 + a)<<endl;
     cout<<"a += 8: "<<(a+=8)<<endl;
+    cout<<"a: "<<a<<endl;
+    cout<<"a -= 8: "<<(a-=8)<<endl;
     cout<<"a: "<<a<<endl;
     cout<<"b: "<<b<<endl;
     cout<<"a += b: "<<(a+=b)<<endl;
@@ -38,4 +44,13 @@ int main(){
     cout<<"a: "<<a<<endl;
     cout<<"a = b-= c: "<<(a=b-=c)<<endl;
     cout<<"a: "<<a<<" b: "<<b<<" c: "<<c<<endl;
+    cout<<"a + b: "<<(a+b)<<endl;
+    cout<<"a - b: "<<(a-b)<<endl;
+    cout<<"-b + a: "<<(-b+a)<<endl;
+    cout<<"5 - b + a * 2: "<<(5 - b + a * 2)<<endl;
+    cout<<"a: "<<a<<" b: "<<b<<endl;
+    cout<<"c = a + b: "<<(c=a+b)<<endl;
+    cout<<"c: "<<c<<endl;
+    cout<<"c = a - b: "<<(c=a-b)<<endl;
+    cout<<"c: "<<c<<endl;
 }

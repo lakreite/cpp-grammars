@@ -21,9 +21,8 @@ public:
     void outln() const{
         std::cout << r << '+' << i << 'i'<< std::endl;
     }
-    Complex operator+(const Complex &arg2){
-        Complex t(this->re() + arg2.re(), this->im() + 			arg2.im());
-        return t;
+    friend Complex operator+(const Complex &arg1, const Complex &arg2){
+        return {arg1.re()+arg2.re(),arg1.im()+arg2.im()};
     }
     Complex operator+(){
         return *this;
@@ -31,8 +30,8 @@ public:
     Complex operator-(){
         return {-this->re(),-this->im()};
     }
-    Complex operator-(const Complex &arg2){
-        return Complex(this->re() - arg2.re(), this->im() - arg2.im());
+    friend Complex operator-(const Complex &arg1, const Complex &arg2){
+        return {arg1.re()-arg2.re(),arg1.im()-arg2.im()};
     }
     Complex& operator++(){
         r += 1;
@@ -76,6 +75,9 @@ public:
     }
     const Complex operator-(double x){
         return {this->r-x,this->i};
+    }
+    friend const Complex operator-(double x, const Complex& arg){
+        return{-arg.re()+x, -arg.im()};
     }
     const Complex operator*(double x){
         return {this->r * x, this->i * x};
