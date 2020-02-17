@@ -25,3 +25,12 @@ clang++ -o binary.out binary.cpp
 clang++ -o unary.out unary.cpp
 запуск:
 ./unary.out
+покрытие: (я не умею использовать clang((( );
+g++ -fprofile-arcs -ftest-coverage binary.cpp
+./a.out
+gcov binary.cpp
+ещё пробовал
+g++ --coverage binary.cpp 
+./a.out
+gcov binary.cpp
+100% coverage

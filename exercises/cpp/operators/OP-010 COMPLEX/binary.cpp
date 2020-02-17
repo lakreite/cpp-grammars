@@ -63,4 +63,7 @@ int main(){
     cout<<"a, b: "<<a<<" "<<b<<endl;
     cout<<"a * b: "<<(a*b)<<endl;
     cout<<"a / b: "<<(a/b)<<endl;
+    c = {42.55, 532};
+    b = {228,0};
+    a = {321,9};
 }

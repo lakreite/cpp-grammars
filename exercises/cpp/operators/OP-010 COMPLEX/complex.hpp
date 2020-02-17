@@ -1,4 +1,5 @@
 //KUZNETSOV MAXIM 207 group
+
 #include<iostream>
 class Complex{
     double r;
@@ -15,12 +16,12 @@ public:
     double im() const{
         return i;
     }
-    void out() const{
-        std::cout << r << '+' << i << 'i';
-    }
-    void outln() const{
-        std::cout << r << '+' << i << 'i'<< std::endl;
-    }
+    //void out() const{
+    //    std::cout << r << '+' << i << 'i';
+    //}
+    //void outln() const{
+    //    std::cout << r << '+' << i << 'i'<< std::endl;
+    //}
     //a + b; Complex a, b;
     friend Complex operator+(const Complex &arg1, const Complex &arg2){
         return {arg1.re()+arg2.re(),arg1.im()+arg2.im()};
@@ -136,12 +137,18 @@ public:
         double temp = arg2.im();
         temp *= temp;
         temp += arg2.re()*arg2.re();
+        //if (temp==0)
+        //    return {};
         return {(arg1.re()*arg2.re()+arg1.im()*arg2.im())/temp, (arg2.re()*arg1.im() - arg1.re()*arg2.im())/temp};
     }
     friend const Complex operator/(const Complex &arg, const double x){
+        //if (x == 0)
+        //    return {};
         return {arg.re()/x,arg.im()/x};
     }
     friend const Complex operator/(const double x, const Complex &arg){
+        //if ((arg.im()==0)&&(arg.re()==0))
+        //    return {};
         return Complex(x,0) / arg;
     } 
 };
