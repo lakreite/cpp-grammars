@@ -30,6 +30,8 @@ int main(){
     cout<<"a * 2: "<<(a * 2)<<endl;
     cout<<"a + 8: "<<(a + 8)<<endl;
     cout<<"8 + a: "<<(8 + a)<<endl;
+    cout<<"a / 8: "<<(a/8)<<endl;
+    cout<<"8 / a: "<<(8/a)<<endl;
     cout<<"a += 8: "<<(a+=8)<<endl;
     cout<<"a: "<<a<<endl;
     cout<<"a -= 8: "<<(a-=8)<<endl;
@@ -53,4 +55,12 @@ int main(){
     cout<<"c: "<<c<<endl;
     cout<<"c = a - b: "<<(c=a-b)<<endl;
     cout<<"c: "<<c<<endl;
+    cout<<"a, b: "<<a<<" "<<b<<endl;
+    cout<<"a*b: "<<(a*b)<<endl;
+    cout<<"a/b: "<<(a/b)<<endl;
+    a = {1, 1};
+    b = {1, -1};
+    cout<<"a, b: "<<a<<" "<<b<<endl;
+    cout<<"a * b: "<<(a*b)<<endl;
+    cout<<"a / b: "<<(a/b)<<endl;
 }
