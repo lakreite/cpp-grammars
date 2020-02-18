@@ -73,12 +73,12 @@ public:
         return *this;
     }
     //a==b; Complex a, b;
-    const bool operator==(const Complex &arg2){
-        return ((this->re()==arg2.re())&&(this->im()==arg2.im()))?true:false;
+    friend const bool operator==(const Complex &arg1, const Complex &arg2){
+        return ((arg1.re()==arg2.re())&&(arg1.im()==arg2.im()))?true:false;
     }
     //a!=b; Complex a, b;
-    const bool operator!=(const Complex &arg2){
-        return ((this->re()!=arg2.re())||(this->im()!=arg2.im()))?true:false;
+    friend const bool operator!=(const Complex &arg1, const Complex &arg2){
+        return ((arg1.re()!=arg2.re())||(arg1.im()!=arg2.im()))?true:false;
     }
     //a + b; Complex a; double b;
     const Complex operator+(double x){

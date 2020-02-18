@@ -21,10 +21,6 @@
 clang++ -o binary.out binary.cpp
 запуск:
 ./binary.out
-компиляция теста унарных операций:
-clang++ -o unary.out unary.cpp
-запуск:
-./unary.out
 покрытие: (я не умею использовать clang((( );
 g++ -fprofile-arcs -ftest-coverage binary.cpp
 ./a.out
@@ -34,3 +30,4 @@ g++ --coverage binary.cpp
 ./a.out
 gcov binary.cpp
 100% coverage
+динамические тесты производятся с помощью assert();
