@@ -24,7 +24,7 @@ public:
     //}
     //a + b; Complex a, b;
     friend Complex operator+(const Complex &arg1, const Complex &arg2){
-        return {arg1.re()+arg2.re(),arg1.im()+arg2.im()};
+        return {arg1.r+arg2.r,arg1.i+arg2.i};
     }
     //+a; Complex a;
     Complex operator+(){
@@ -32,7 +32,7 @@ public:
     }
     //-a; Complex a;
     Complex operator-(){
-        return {-this->re(),-this->im()};
+        return {-this->r,-this->i};
     }
     //a - b; Complex a,b;
     friend const Complex operator-(const Complex &arg1, const Complex &arg2){
@@ -86,7 +86,7 @@ public:
     }
     //a + b; double a; Complex b;
     friend const Complex operator+(double x, const Complex& arg){
-        return {arg.re()+x,arg.im()};
+        return {arg.r+x,arg.i};
     }
     //a - b; Complex a; double b;
     const Complex operator-(double x){
@@ -94,7 +94,7 @@ public:
     }
     //a - b; double a; Complex b;
     friend const Complex operator-(double x, const Complex& arg){
-        return{-arg.re()+x, -arg.im()};
+        return{-arg.r+x, -arg.i};
     }
     //a * b; Complex a; double b;
     const Complex operator*(double x){
@@ -102,14 +102,14 @@ public:
     }
     //a * b; double a; Complex b;
     friend const Complex operator*(double x, const Complex& arg){
-        return{arg.re()*x,arg.im()*x};
+        return{arg.r*x,arg.i*x};
     }
     //a = b; Complex a, b;
-    Complex& operator=(const Complex& arg){
-        this->r = arg.re();
-        this->i = arg.im();
-        return *this;
-    }
+    //Complex& operator=(const Complex& arg){
+    //    this->r = arg.re();
+    //    this->i = arg.im();
+    //    return *this;
+    //}
     //out<<a; std::ostream out; Complex a;
     friend std::ostream& operator<<(std::ostream &out, const Complex &arg){
         if (arg.re() != 0)
@@ -130,21 +130,21 @@ public:
         return this->r;
     }
     friend const Complex operator*(const Complex &arg1, const Complex &arg2){
-        return {arg1.re()*arg2.re()-arg1.im()*arg2.im(),
-            arg1.re()*arg2.im() + arg1.im()*arg2.re()};
+        return {arg1.r*arg2.r-arg1.i*arg2.i,
+            arg1.r*arg2.i + arg1.i*arg2.r};
     }
     friend const Complex operator/(const Complex &arg1,const Complex &arg2){
-        double temp = arg2.im();
+        double temp = arg2.i;
         temp *= temp;
-        temp += arg2.re()*arg2.re();
+        temp += arg2.r*arg2.r;
         //if (temp==0)
         //    return {};
-        return {(arg1.re()*arg2.re()+arg1.im()*arg2.im())/temp, (arg2.re()*arg1.im() - arg1.re()*arg2.im())/temp};
+        return {(arg1.r*arg2.r+arg1.i*arg2.i)/temp, (arg2.r*arg1.i - arg1.r*arg2.i)/temp};
     }
     friend const Complex operator/(const Complex &arg, const double x){
         //if (x == 0)
         //    return {};
-        return {arg.re()/x,arg.im()/x};
+        return {arg.r/x,arg.i/x};
     }
     friend const Complex operator/(const double x, const Complex &arg){
         //if ((arg.im()==0)&&(arg.re()==0))

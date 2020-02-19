@@ -20,7 +20,7 @@ int main(){
     c = {8,7};
     cout<<"b: "<<b<<" c: "<<c<<endl;
     //cout<<"(a=b)=c: "<<((a=b)=c)<<endl;
-    assert((cout<<"TTT: testing (a=b)=c: ",(((a=b)=c)==a)&&(a!=b)&&(b!=c)));
+    assert((cout<<"TTT: testing (a=b)=c: ",(((a=b)=c)==a)&&(a!=b)&&(b!=c)));//C++: result of = has lvalue category
     cout<<"true"<<endl;
     cout<<"a: "<<a<<endl;
     a = {1,1};
